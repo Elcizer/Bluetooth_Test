@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bluetooth</string>
+    <string name="bt">bt 확인</string>
+    <string name="btstart">BT 시작</string>
+</resources>
