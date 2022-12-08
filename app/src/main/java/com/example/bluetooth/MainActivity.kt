@@ -1,14 +1,10 @@
 package com.example.bluetooth
 
-import android.R
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat.startActivityForResult
 import app.akexorcist.bluetotohspp.library.BluetoothSPP
 import app.akexorcist.bluetotohspp.library.BluetoothSPP.BluetoothConnectionListener
 import app.akexorcist.bluetotohspp.library.BluetoothState
@@ -34,10 +30,10 @@ class MainActivity : AppCompatActivity() {
             ).show()
             finish()
         }
-        bt.setOnDataReceivedListener { data, message ->
-            //데이터 수신
-            Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
-        }
+        bt.setOnDataReceivedListener( { data, message ->
+            //데이터 수신되면
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show() // 토스트로 데이터 띄움
+        })
         bt.setBluetoothConnectionListener(object : BluetoothConnectionListener {
             //연결됐을 때
             override fun onDeviceConnected(name: String, address: String) {
